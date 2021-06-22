@@ -72,7 +72,7 @@ app.use(passport.session());
 // agregar flash messages
 app.use(flash());
 
-// Pasar var dump a la aplicación
+// Pasar var dump
 app.use((req, res, next) => {
     res.locals.vardump = helpers.vardump;
     res.locals.mensajes = req.flash();

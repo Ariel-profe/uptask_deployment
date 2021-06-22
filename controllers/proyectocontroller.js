@@ -68,14 +68,12 @@ const proyectoPorUrl = async(req, res, next)=>{
 
         const [proyectos, proyecto] = await Promise.all([proyectosPromise, proyectoPromise])
 
-        //Consultar tareas del proyecto actual
+        //Consultar tareas del proyecto
         const tareas = await Tareas.findAll({
             where: {
                 proyectoId : proyecto.id
             },
-            // include: [
-            //     {model: Proyectos}
-            // ]
+            
         });
 
     if(!proyecto) return next();

@@ -2,6 +2,7 @@ const Proyectos = require('../models/Proyectos');
 const Tareas = require('../models/Tareas');
 
 exports.agregarTarea = async (req, res, next) => {
+
     // obtenemos el Proyecto actual
     const proyecto = await Proyectos.findOne({where: { url: req.params.url }});
 
@@ -19,7 +20,7 @@ exports.agregarTarea = async (req, res, next) => {
         return next();
     }
 
-    // redireccionar
+    // redirecciona
     res.redirect(`/proyectos/${req.params.url }`);
 
 }

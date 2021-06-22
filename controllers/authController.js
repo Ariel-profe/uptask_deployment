@@ -15,7 +15,7 @@ exports.autenticarUsuario = passport.authenticate('local', {
     badRequestMessage: 'Ambos Campos son Obligatorios'
 });
 
-// Función para revisar si el usuario esta logueado o no
+// usuario esta logueado o no
 exports.usuarioAutenticado = (req, res, next) => {
 
     // si el usuario esta autenticado, adelante
@@ -26,7 +26,7 @@ exports.usuarioAutenticado = (req, res, next) => {
     return res.redirect('/iniciar-sesion');
 }
 
-// función para cerrar sesión
+// función cerrar sesión
 exports.cerrarSesion = (req, res) => {
     req.session.destroy(() => {
         res.redirect('/iniciar-sesion'); // al cerrar sesión nos lleva al login

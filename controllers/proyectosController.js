@@ -3,8 +3,6 @@ const Tareas = require('../models/Tareas');
 
 exports.proyectosHome = async (req, res) => {
 
-    // console.log(res.locals.usuario);
-
     const usuarioId = res.locals.usuario.id;
     const proyectos = await Proyectos.findAll({where: { usuarioId  }});
 
@@ -29,10 +27,6 @@ exports.nuevoProyecto = async (req, res) => {
     const usuarioId = res.locals.usuario.id;
     const proyectos = await Proyectos.findAll({where: { usuarioId  }});
 
-    // Enviar a la consola lo que el usuario escriba.
-    // console.log(req.body);
-
-    // validar que tengamos algo en el input
     const nombre = req.body.nombre;
 
     let errores = [];
@@ -75,9 +69,7 @@ exports.proyectoPorUrl = async (req, res, next) => {
         where: {
             proyectoId : proyecto.id
         },
-        // include: [
-        //     { model: Proyectos }
-        // ]
+       
     });
 
     if(!proyecto) return next();
@@ -117,9 +109,6 @@ exports.actualizarProyecto = async (req, res) => {
     const usuarioId = res.locals.usuario.id;
     const proyectos = await Proyectos.findAll({where: { usuarioId  }});
 
-    // Enviar a la consola lo que el usuario escriba.
-    // console.log(req.body);
-
     // validar que tengamos algo en el input
     const nombre = req.body.nombre;
 
@@ -148,7 +137,7 @@ exports.actualizarProyecto = async (req, res) => {
 }
 
 exports.eliminarProyecto = async (req, res, next) => {
-    // req, query o params
+
     // console.log(req.query);
     const {urlProyecto} = req.query;
 

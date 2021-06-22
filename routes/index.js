@@ -63,13 +63,13 @@ module.exports = function() {
         tareasController.cambiarEstadoTarea
     );
 
-    // Eliminar Tareas
+    // Eliminar tareas
     router.delete('/tareas/:id', 
         authController.usuarioAutenticado,
         tareasController.eliminarTarea
     );
 
-    // Crear nueva cuenta usuario
+    // Crear cuenta usuario
     router.get('/crear-cuenta', usuariosController.formCrearCuenta);
     router.post('/crear-cuenta', usuariosController.crearCuenta);
     router.get('/confirmar/:correo', usuariosController.confirmarCuenta);
